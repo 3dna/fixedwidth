@@ -14,8 +14,8 @@ module Fixedwidth
     end
 
     def to_a
-      array = Fixedwidth.column_positions.map do |start, stop|
-        field = @line[start, stop]
+      array = Fixedwidth.column_positions.map do |start, length|
+        field = @line[start, length]
         field.strip!
         if Fixedwidth.nil_blanks? && field.length == 0
          field = nil
